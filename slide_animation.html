@@ -235,6 +235,14 @@
       <label>台本テキスト</label>
       <input type="text" id="scriptText" value="Hablamos rápido. 私たちは、速く話す。という意味です。CとV、子音と母音の音の塊の基礎です。ha-bla-mos rá-pi-do.というふうに、6音節で発します。">
     </div>
+    <div class="ctrl-row">
+      <label>モデル</label>
+      <select id="modelId" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:8px;color:#e8eaf0;padding:8px 12px;font-size:0.85rem;width:100%;outline:none;">
+        <option value="eleven_v3" selected>⭐ Eleven v3（最高品質・日本語◎）</option>
+        <option value="eleven_multilingual_v2">Eleven Multilingual v2</option>
+        <option value="eleven_flash_v2_5">Eleven Flash v2.5（高速）</option>
+      </select>
+    </div>
 
     <hr>
     <div class="section-header">⏱️ アニメーションタイミング（秒）</div>
@@ -323,7 +331,7 @@
           },
           body: JSON.stringify({
             text: text,
-            model_id: 'eleven_multilingual_v2',
+            model_id: document.getElementById('modelId').value,
             voice_settings: { stability: 0.5, similarity_boost: 0.75 }
           })
         }
